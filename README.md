@@ -179,6 +179,10 @@ od_model.set_hyperparameters(base_network='resnet-50',
                              num_training_samples=16551)
 ```                        
 
+**NOTE: As soon as the model training starts, please start Module number 3 and come back to this. The model training will take about 10 minutes.**
+
+![Lab complete](./images/trainingjob.png)
+
 When the Lab is completed, you should be able to see a test Image with object bounding boxes.
 
 ![Lab complete](./images/labcomplete.png)
