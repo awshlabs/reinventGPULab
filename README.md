@@ -138,11 +138,11 @@ This notebook is an end-to-end example introducing the Amazon SageMaker Object D
 1. Click on **Object-detection-P3.ipynb** to open the notebook.
 1. Follow the instructions in the notebook to continue with the lab.
 1. Make sure you enter your bucket name correctly under Setup.
-![bucket name wrong](./images/objectdetectionlabbucketname1.png)
+
+![bucket name empty](./images/objectdetectionlabbucketname1.png)
 ![bucket name wrong](./images/objectdetectionlabbucketname2.png)
 ![bucket name correct](./images/objectdetectionlabbucketname3.png)
-
-<strong>NOTE: Getting the dataset takes about 10 min, training the model for this example typically takes about 15 minutes, setting up an inference end point takes about 5 min</strong></p>
+ **NOTE: Getting the dataset takes about 10 min, training the model for this example typically takes about 15 minutes, setting up an inference end point takes about 5 min.**
 
 **Code Highlights**
 
@@ -179,8 +179,13 @@ od_model.set_hyperparameters(base_network='resnet-50',
                              num_training_samples=16551)
 ```                        
 
+When the Lab is completed, you should be able to see a test Image with object bounding boxes.
+
+![Lab complete](./images/labcomplete.png)
+
+
 ## Module 3: GluonNLP BERT Lab
-1. Check out a copy of the KDD Gluon Tutorial.  
+1. Check out a copy of the Gluon Tutorial.  
  + cd /home/ec2-user/SageMaker
  + git clone https://github.com/astonzhang/KDD19-tutorial
  
@@ -197,10 +202,10 @@ add the following lines in the cell:
 !pip install d2l==0.8.2
 !pip install gluonNLP
 ```
- 4. Shift+Enter to run the cell.  
+ 4.Shift+Enter to run the cell.  
  ![workshop folder](./images/bert-install-mxnet.png)
  
- 5. Continue running the notebook.
+ 5.Continue running the notebook.
 
  
 ## Additional (Optional) NLP Module:  
@@ -229,13 +234,11 @@ If you are provided with AWS credit for this workshop, use this [link](https://c
 
 ## Cleanup Guide   **Do the cleaning up after all labs are done**
 
-**To avoid charges** for resources you no longer need when you're done with this workshop, you can delete them or, in the case of your notebook instance, stop them.  Here are the resources you should consider:
+**To avoid charges** for resources you no longer need when you're done with this workshop, you can delete them or, in the case of your notebook instance, stop them. This is especially important if you are doing this at home or using the free credit provided after the workshop. Here are the resources you should consider:
 
 - Endpoints:  these are the clusters of one or more instances serving inferences from your models. If you did not delete them from within the notebooks, you can delete them via the SageMaker console.  To do so, click the **Endpoints** link in the left panel.  Then, for each endpoint, click the radio button next to it, then select **Delete** from the **Actions** drop down menu. You can follow a similar procedure to delete the related Models and Endpoint configurations.
 
 - Notebook instance:  you have two options if you do not want to keep the notebook instance running. If you would like to save it for later, you can stop rather than deleting it. To delete it, click the **Notebook instances** link in the left panel. Next, click the radio button next to the notebook instance created for this workshop, then select **Delete** from the **Actions** drop down menu. To simply stop it instead, just click the **Stop** link.  After it is stopped, you can start it again by clicking the **Start** link.  Keep in mind that if you stop rather than deleting it, you will be charged for the storage associated with it.  
-
-
 
 
 
