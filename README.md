@@ -121,9 +121,9 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 ![download workshop](./images/git1.png)
 
-3. Switch back to the Jupyter notebook home tab, you will see a new folder called **aws_workshop** showed up
+3. Switch back to the Jupyter notebook home tab, you will see a new folder called **reinventGPULab** showed up.
 
-![workshop folder](./images/workshop.png)
+![workshop folder](./images/objectdetectionlab.png)
 
 
 
@@ -132,11 +132,15 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 This notebook is an end-to-end example introducing the Amazon SageMaker Object Detection algorithm. In this demo, we will demonstrate how to train and to host an object detection model using the Single Shot multibox Detector ([SSD](https://arxiv.org/abs/1512.02325)) algorithm. In doing so, we will also demonstrate how to construct a training dataset using the RecordIO format as this is the format that the training job will consume. We will also demonstrate how to host and validate this trained model.
 
 
-1. Open the **aws_workshop** folder and then the **object_detection_p3** folder in your Jupyter to display a list of Jupyter notebooks.
-2. Click on **Object-detection-P3.ipynb** to open the notebook.
-3. Follow the instructions in the notebook to continue with the lab.
+1. Open the **reinventGPULab** folder and then the **object_detection_p3** folder in your Jupyter to display a list of Jupyter notebooks.
+1. Click on **Object-detection-P3.ipynb** to open the notebook.
+1. Follow the instructions in the notebook to continue with the lab.
+1. Make sure you enter your bucket name correctly under Setup.
+![bucket name wrong](./images/objectdetectionlabbucketname1.png)
+![bucket name wrong](./images/objectdetectionlabbucketname2.png)
+![bucket name correct](./images/objectdetectionlabbucketname3.png)
 
-<p><strong>NOTE: Getting the dataset takes about 10 min, training the model for this example typically takes about 15 minutes, setting up an inference end point takes about 5 min</strong></p>
+<strong>NOTE: Getting the dataset takes about 10 min, training the model for this example typically takes about 15 minutes, setting up an inference end point takes about 5 min</strong></p>
 
 **Code Highlights**
 
