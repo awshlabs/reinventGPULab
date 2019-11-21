@@ -1,10 +1,12 @@
-# KDD2019 Amazon SageMaker Labs
-Thank you for attending our session at KDD. 
+# Re:Invent 2019 Optimize ML training and inferencing using Amazon EC2 GPU Instances Lab
 
-If you are interested in our Research reward program, please see the link below. Or contact me directly. 
-https://aws.amazon.com/aws-ml-research-awards/
+## Schedule:  ##
+- CMP307-R	Mon	2019-12-02 16:45:00	MGM, Level 1, Boulevard Ballroom 156
+- CMP307-R1	Tue	2019-12-03 19:00:00	[REPEAT 1] Aria, Plaza Level East, Orovada 8 
+- CMP307-R2	Wed	2019-12-04 08:30:00	[REPEAT 2] Aria, Plaza Level East, Orovada 8
 
-Amazon SageMaker is a fully-managed service that enables developers and data scientists to quickly and easily build, train, and deploy machine learning models at any scale. Amazon EC2 P3 instances deliver the highest performance compute in the cloud, are cost-effective, support all major machine learning frameworks, and are available globally. In this workshop, you'll create a SageMaker notebook instance and work through sample Jupyter notebooks that demonstrate some of the many features of SageMaker and how Amazon EC2 P3 is used to accelerate machine learning model training.    
+
+Amazon SageMaker is a fully-managed service that enables developers and data scientists to quickly and easily build, train, and deploy machine learning models at scale. Amazon EC2 P3 instances deliver the highest performance compute in the cloud, are cost-effective, support all major machine learning frameworks, and are available globally. In this workshop, you'll create a SageMaker notebook instance and work through sample Jupyter notebooks that demonstrate some of the many features of SageMaker and how Amazon [EC2 P3](https://aws.amazon.com/ec2/instance-types/p3/) is used to accelerate machine learning model training, and the new [G4 instances](https://aws.amazon.com/about-aws/whats-new/2019/09/introducing-amazon-ec2-g4-instances-the-most-cost-effective-gpu-platform/#:~:targetText=G4%20instances%20provide%20the%20latest,GB%20of%20local%20NVMe%20storage.) are used to optimize Deep Learning model inferences.    
 
 ![Overview](./images/overview.png)
 
@@ -12,16 +14,8 @@ Amazon SageMaker is a fully-managed service that enables developers and data sci
 
 ## Prerequisites
 
-**Slides**   https://github.com/awshlabs/kdd2019/tree/master/slides
-This now includes GTC DC 2019 Slides.
+**Slides**   [Slides.](https://github.com/awshlabs/kdd2019/blob/master/slides/GTC-DC%20Build%2C%20Train%2C%20and%20Deploy%20Deep%20Learning%20Models%20Faster%20in%20the%20Cloud%20with%20Amazon%20SageMaker%20v0.5.pdf)  You may also find this on Re:Invent [website](https://reinvent.awsevents.com/). 
 
-### AWS Account
-
-In order to complete this workshop you'll need an AWS Account with access to create AWS IAM, S3, and SageMaker resources. If you do not have an AWS Account, please follow the [instructions here](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) to create an AWS Account. 
-
-The code and instructions in this workshop assume only one student is using a given AWS account at a time. If you try sharing an account with another student, you'll run into naming conflicts for certain resources. You can work around these by appending a unique suffix to the resources that fail to create due to conflicts, but the instructions do not provide details on the changes required to make this work.
-
-If you are provided with AWS credit for this workshop, use this [link](https://console.aws.amazon.com/billing/home?#/credits) to apply the credit to your AWS Account.
 
 ### AWS Region
 
@@ -34,15 +28,18 @@ SageMaker is not available in all AWS Regions at this time.  Accordingly, we rec
 
 ### Browser
 
-We recommend you use the latest version of Chrome or Firefox to complete this workshop.
+We recommend you use the latest version of [Chrome](https://www.google.com/chrome/) or [Firefox](https://www.mozilla.org/en-US/firefox/new/) to complete this workshop.
 
 ## Modules
 
-This workshop is divided into multiple modules. Module 1 must be completed first. You can complete the other modules (Modules 2 and 3) in any order.  
+This workshop is divided into multiple modules. You can complete the other modules (Modules 2 and 3) in any order.  
 
-1. Creating a Notebook Instance (in Oregon)
-2. Object Detection Using P3
-3. Running GluonNLP BERT Model
+1. **Creating a Notebook Instance (In Oregon).**
+2. **Object Detection Using P3 and G4 Instances.**
+3. **Running GluonNLP BERT Model.**
+4. **Additional and optional Modules.**
+	-  **Question Answering Bert.**
+ 	-  **Deploy Bert end-to-end.**
 
 Be patient as you work your way through the notebook-based modules. After you run a cell in a notebook, it may take several seconds for the code to show results. For the cells that start training jobs, it may take 10 to 30 minutes. 
 
@@ -52,13 +49,13 @@ After you have completed the workshop, you can delete all of the resources that 
 
 In this module, we'll start by creating an Amazon S3 bucket that will be used throughout the workshop.  We'll then create a SageMaker notebook instance, which we will use to run the other workshop modules.
 
-### 1. Create a S3 Bucket  (Make sure this is in the same region as SageMaker, **Oregon** etc).
+### 1. Create a S3 Bucket  (Make sure this is in the same region as SageMaker, **Oregon**).
 
 SageMaker typically uses S3 as storage for data and model artifacts.  In this step you'll create a S3 bucket for this purpose. To begin, sign into the AWS Management Console, https://console.aws.amazon.com/.
 
 #### High-Level Instructions
 
-Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your bucket's name must be globally unique across all regions and customers. We recommend using a name like `smp3workshop-firstname-lastname`. If you get an error that your bucket name already exists, try adding additional numbers or characters until you find an unused name.
+Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your bucket's name must be globally unique across all regions and customers. We recommend using a name like `p3workshop-firstname-lastname`. If you get an error that your bucket name already exists, try adding additional numbers or characters until you find an unused name.
 
 <details>
 <summary><strong>Step-by-step instructions (expand for details)</strong></summary><p>
@@ -72,35 +69,35 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 1. Select the Region you've chosen to use for this workshop from the dropdown.
 
 1. Choose **Create** in the lower left of the dialog without selecting a bucket to copy settings from.
-
+![s3 bucket creation](./images/s3creation.png)
 </p></details>
 
 ### 2. Launching the Notebook Instance  (**Pick Oregon**)
 
-1. In the upper-right corner of the AWS Management Console, confirm you are in the desired AWS region. Select N. Virginia, **Oregon**, Ohio.
+1. In the upper-right corner of the AWS Management Console, confirm you are in the desired AWS region.  **Oregon**.
 
 2. Click on Amazon SageMaker from the list of all services.  This will bring you to the Amazon SageMaker console homepage.
 
 ![Services in Console](./images/Picture1.png)
 
-3. To create a new notebook instance, go to **Notebook instances**, and click the **Create notebook instance** button at the top of the browser window.
+3.To create a new notebook instance, go to **Notebook instances**, and click the **Create notebook instance** button at the top of the browser window.
 
 ![Notebook Instances](./images/new_instance.png)
 
-4. Type [First Name]-[Last Name]-workshop into the **Notebook instance name** text box, and select ml.p2.xlarge for the **Notebook instance type**.
+4.Type [First Name]-[Last Name]-workshop into the **Notebook instance name** text box, and select **ml.p3.2xlarge** for the **Notebook instance type**. Make sure you enter **10 GB** under Additional Configuration pull down. 
 
 
-![Create Notebook Instance](./images/create-notebook1.png)
+![Create Notebook Instance](./images/create-notebook.png)
 
-5. For IAM role, choose **Create a new role**. On the next screen, select **Specific S3 buckets** for the **S3 buckets you specify - optional** section, enter the name of the S3 bucket you created in the last step **It is important to double check your bucket name, use copy and paste to avoid human error**, and click **Create role** to continue.
+5.For IAM role, choose **Create a new role**. On the next screen, select **Any S3 buckets** for the **S3 buckets you specify - optional** section.
 
 ![Create IAM Role](./images/IAMrole.png)
 
-6. Enter **10** for the **Volume Size In GB - optional** instead of the default 5, the default will cause out of space error.
+6.Enter **10** for the **Volume Size In GB ** instead of the default 5, the default will cause out of space error.
 
-7. You can expand the "Tags" section and add tags here if required.
+7.You can expand the "Tags" section and add tags here if required.
 
-8. Click **Create notebook instance**.  This will take several minutes to complete.
+8.Click **Create notebook instance**.  This will take several minutes to complete.
 
 ### 3. Accessing the Notebook Instance
 
@@ -198,20 +195,31 @@ add the following lines in the cell:
  ![workshop folder](./images/bert-install-mxnet.png)
  
  5. Continue running the notebook.
+
  
- ## Anomaly Detection Module: 
- 1. https://github.com/miroenev/teach_DL/anomaly_detection
- 2. TBD  (we will be releassing amazon spheres dataset in the near future)
- 
- ## Additional NLP Module:  
- 1. BERT Q&A Model: https://github.com/eric-haibin-lin/nlp-notebooks/blob/master/natural_language_understanding/question_answering.ipynb
- 
- ## Additional Container Models: 
+## Additional (Optional) NLP Module:  
+ 1. BERT Q&A Model: Github [https://github.com/eric-haibin-lin/nlp-notebooks/tree/master/natural_language_understanding ](https://github.com/eric-haibin-lin/nlp-notebooks/tree/master/natural_language_understanding)  Run: question_answering.ipynb
+ 2. Hands-on: Training and deploying GluonNLP models on AWS SageMaker Github: [https://github.com/eric-haibin-lin/reinvent19-gluonnlp/blob/master/tutorial/](https://github.com/eric-haibin-lin/reinvent19-gluonnlp/blob/master/tutorial/) Run: train_deploy_bert.ipynb
+
+## Additional (Optional) Container Models: 
  1. Amazon Elastic Container Service (Amazon ECS) tutorial.
     https://aws.amazon.com/getting-started/tutorials/train-deep-learning-model-aws-ec2-containers/
  
  2. Amazon Elastic Kubernetes Service (EKS) tutorial.
     https://docs.aws.amazon.com/dlami/latest/devguide/deep-learning-containers-eks.html
+
+
+
+### AWS Account (Free credit you are receiving for use after the workshop).
+
+In order to complete this workshop you'll need an AWS Account with access to create AWS IAM, S3, and SageMaker resources. If you do not have an AWS Account, please follow the [instructions here](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/) to create an AWS Account. 
+
+The code and instructions in this workshop assume only one student is using a given AWS account at a time. If you try sharing an account with another student, you'll run into naming conflicts for certain resources. You can work around these by appending a unique suffix to the resources that fail to create due to conflicts, but the instructions do not provide details on the changes required to make this work.
+
+If you are provided with AWS credit for this workshop, use this [link](https://console.aws.amazon.com/billing/home?#/credits) to apply the credit to your AWS Account.
+
+
+
 
 ## Cleanup Guide   **Do the cleaning up after all labs are done**
 
@@ -220,6 +228,11 @@ add the following lines in the cell:
 - Endpoints:  these are the clusters of one or more instances serving inferences from your models. If you did not delete them from within the notebooks, you can delete them via the SageMaker console.  To do so, click the **Endpoints** link in the left panel.  Then, for each endpoint, click the radio button next to it, then select **Delete** from the **Actions** drop down menu. You can follow a similar procedure to delete the related Models and Endpoint configurations.
 
 - Notebook instance:  you have two options if you do not want to keep the notebook instance running. If you would like to save it for later, you can stop rather than deleting it. To delete it, click the **Notebook instances** link in the left panel. Next, click the radio button next to the notebook instance created for this workshop, then select **Delete** from the **Actions** drop down menu. To simply stop it instead, just click the **Stop** link.  After it is stopped, you can start it again by clicking the **Start** link.  Keep in mind that if you stop rather than deleting it, you will be charged for the storage associated with it.  
+
+
+
+
+
 
 ## License
 
