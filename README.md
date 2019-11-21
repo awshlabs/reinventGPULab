@@ -12,10 +12,12 @@ Amazon SageMaker is a fully-managed service that enables developers and data sci
 
 ![p3](./images/p3.png)
 
-## Prerequisites
+## Optional Prerequisites
 
 **Slides**   [Slides.](https://github.com/awshlabs/kdd2019/blob/master/slides/GTC-DC%20Build%2C%20Train%2C%20and%20Deploy%20Deep%20Learning%20Models%20Faster%20in%20the%20Cloud%20with%20Amazon%20SageMaker%20v0.5.pdf)  You may also find this on Re:Invent [website](https://reinvent.awsevents.com/). 
 
+**Dive into Deep Learning** Book:  [http://d2l.ai/](http://d2l.ai/) 
+![Dive into Deep Learning](./images/frontd2lbook.png)
 
 ### AWS Region
 
