@@ -117,7 +117,7 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 2. Inside the terminal window, type the following commands to download the content. 
  + cd /home/ec2-user/SageMaker
- + git clone https://github.com/dping1/AWS_P3_Workshop.git
+ + git clone https://github.com/awshlabs/reinventGPULab
 
 ![download workshop](./images/git1.png)
 
