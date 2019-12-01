@@ -131,7 +131,7 @@ Verify you entered **10** for the **Volume Size In GB ** instead of the default 
 This notebook is an end-to-end example introducing the Amazon SageMaker Object Detection algorithm. In this demo, we will demonstrate how to train and to host an object detection model using the Single Shot multibox Detector ([SSD](https://arxiv.org/abs/1512.02325)) algorithm. In doing so, we will also demonstrate how to construct a training dataset using the RecordIO format as this is the format that the training job will consume. We will also demonstrate how to host and validate this trained model.
 
 
-1. Open the **reinventGPULab** folder and then the **object_detection_p3** folder in your Jupyter to display a list of Jupyter notebooks.
+1. Open the **reinventGPULab** folder, followed by **labs_version** folder, and then the **object_detection_p3** folder in your Jupyter to display a list of Jupyter notebooks.
 1. Click on **Object-detection-P3.ipynb** to open the notebook.
 1. Follow the instructions in the notebook to continue with the lab.
 1. Make sure you enter your bucket name correctly under Setup.
