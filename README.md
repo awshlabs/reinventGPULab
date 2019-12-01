@@ -86,20 +86,17 @@ Use the console or AWS CLI to create an Amazon S3 bucket. Keep in mind that your
 
 ![Notebook Instances](./images/new_instance.png)
 
-4.Type [First Name]-[Last Name]-workshop into the **Notebook instance name** text box, and select **ml.p3.2xlarge** for the **Notebook instance type**. Make sure you enter **10 GB** under Additional Configuration pull down. 
+4.Type [First Name]-[Last Name]-workshop into the **Notebook instance name** text box, and select **ml.p3.2xlarge** for the **Notebook instance type**. 
 
+Make sure you enter **10 GB** under Additional Configuration pull down. On the same page, configure IAM role, choose **Create a new role**. 
+
+On the next screen, select **Any S3 buckets** for the **S3 buckets you specify - optional** section.
+
+Verify you entered **10** for the **Volume Size In GB ** instead of the default 5, the default will cause out of space error.
 
 ![Create Notebook Instance](./images/create-notebook.png)
 
-5.For IAM role, choose **Create a new role**. On the next screen, select **Any S3 buckets** for the **S3 buckets you specify - optional** section.
-
-![Create IAM Role](./images/IAMrole.png)
-
-6.Enter **10** for the **Volume Size In GB ** instead of the default 5, the default will cause out of space error.
-
-7.You can expand the "Tags" section and add tags here if required.
-
-8.Click **Create notebook instance**.  This will take several minutes to complete.
+5.Click **Create notebook instance**.  This will take several minutes to complete.
 
 ### 3. Accessing the Notebook Instance
 
