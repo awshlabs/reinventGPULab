@@ -193,7 +193,7 @@ When the Lab is completed, you should be able to see a test Image with object bo
 2. Open Jupyter Notebook and navigate to 07_bert_app/ directory, Open the bert.ipynb.
 3. Pick the conda_mxnet_p36 kernel.
 ![workshop folder](./images/bert-kernel.png)
-3. At the top of the notebook add a cell by using the + tool symbol. 
+4. At the top of the notebook add a cell by using the + tool symbol. 
 add the following lines in the cell:
 
 ```
@@ -201,22 +201,27 @@ add the following lines in the cell:
 !pip install gluonNLP
 ```
 
- 4.Shift+Enter to run the cell.  
+ Shift+Enter to run the cell.  
  ![workshop folder](./images/bert-install-mxnet.png)
  
- 5.Continue running the notebook.
+5.Continue running the notebook until the training starts.
+
+![workshop folder](./images/berttrainingprogress.png)
  
- 6. As the training starts, optionally go into the terminal window and type the command:
+6.As the training starts, optionally go into the terminal window and type the command:
  
 ``` 
 	watch nvidia-smi. 
 ```
 
-7. Monitor GPU utilization.
-
-
+7.Monitor GPU utilization.
 
 ![workshop folder](./images/gpumonitoring.png) 
+
+
+8.Testing the trained model.
+
+![workshop folder](./images/berttesting.png)
 
  
 ## Additional (Optional) NLP Module:  
