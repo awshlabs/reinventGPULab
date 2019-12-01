@@ -197,16 +197,26 @@ When the Lab is completed, you should be able to see a test Image with object bo
 add the following lines in the cell:
 
 ```
-!pip uninstall mxnet -y
-!pip uninstall mxnet-cu100mkl -y
-!pip install mxnet-cu100mkl
 !pip install d2l==0.8.2
 !pip install gluonNLP
 ```
+
  4.Shift+Enter to run the cell.  
  ![workshop folder](./images/bert-install-mxnet.png)
  
  5.Continue running the notebook.
+ 
+ 6. As the training starts, optionally go into the terminal window and type the command:
+ 
+``` 
+	watch nvidia-smi. 
+```
+
+7. Monitor GPU utilization.
+
+
+
+![workshop folder](./images/gpumonitoring.png) 
 
  
 ## Additional (Optional) NLP Module:  
