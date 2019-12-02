@@ -146,7 +146,7 @@ This notebook is an end-to-end example introducing the Amazon SageMaker Object D
 SageMaker Estimator makes remote distributed training convenient.
 
 
-```
+```python
 od_model = sagemaker.estimator.Estimator(training_image,
                                          role, 
                                          train_instance_count=1, 
@@ -160,7 +160,7 @@ od_model = sagemaker.estimator.Estimator(training_image,
 
 Setting up Hyperparameters.
 
-```
+```python
 od_model.set_hyperparameters(base_network='resnet-50',
                              num_classes=20,
                              mini_batch_size=16,
