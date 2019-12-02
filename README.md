@@ -163,7 +163,7 @@ Setting up Hyperparameters.
 od_model.set_hyperparameters(base_network='resnet-50',  // base network, example, mobilenet, resnet, alexnet, vgg16, inception, etc.
                              num_classes=20,     // number of objects to classify
                              mini_batch_size=16, // number of samples to work through before updating the internal model parameters
-                             epochs=1,           // number of pass of the entire training dataset
+                             epochs=1,           // number of passes of the entire training dataset
                              learning_rate=0.001,
                              optimizer='sgd',    //Stochastic Gradient Descent
                              momentum=0.9,
