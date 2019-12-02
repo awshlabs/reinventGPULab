@@ -145,7 +145,6 @@ This notebook is an end-to-end example introducing the Amazon SageMaker Object D
 
 SageMaker Estimator makes remote distributed training convenient.
 
-
 ```python
 od_model = sagemaker.estimator.Estimator(training_image,
                                          role, 
