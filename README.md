@@ -146,12 +146,12 @@ This notebook is an end-to-end example introducing the Amazon SageMaker Object D
 SageMaker Estimator makes remote distributed training convenient.
 
 ```python
-od_model = sagemaker.estimator.Estimator(training_image,
+od_model = sagemaker.estimator.Estimator(training_image,                        //docker image
                                          role, 
                                          train_instance_count=1, 
-                                         train_instance_type='ml.p3.2xlarge',
+                                         train_instance_type='ml.p3.2xlarge',   // instance Type, p2, p3 typically.
                                          train_volume_size = 50,
-                                         train_max_run = 360000,
+                                         train_max_run = 360000,                // 100 hours
                                          input_mode= 'File',
                                          output_path=s3_output_location,
                                          sagemaker_session=sess)
@@ -160,12 +160,12 @@ od_model = sagemaker.estimator.Estimator(training_image,
 Setting up Hyperparameters.
 
 ```python
-od_model.set_hyperparameters(base_network='resnet-50',
-                             num_classes=20,
-                             mini_batch_size=16,
-                             epochs=1,
+od_model.set_hyperparameters(base_network='resnet-50',  // base network, example, mobilenet, resnet, alexnet, vgg16, inception, etc.
+                             num_classes=20,     // number of objects to classify
+                             mini_batch_size=16, // number of samples to work through before updating the internal model parameters
+                             epochs=1,           // number of pass of the entire training dataset
                              learning_rate=0.001,
-                             optimizer='sgd',
+                             optimizer='sgd',    //Stochastic Gradient Descent
                              momentum=0.9,
                              weight_decay=0.0005,
                              overlap_threshold=0.5,
