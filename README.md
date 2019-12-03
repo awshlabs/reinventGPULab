@@ -1,6 +1,6 @@
 # Re:Invent 2019 Optimize ML training and inferencing using Amazon EC2 GPU Instances Lab
 
-## Schedule:  ##
+## Schedule:  
 - CMP307-R	Mon	2019-12-02 16:45:00	MGM, Level 1, Boulevard Ballroom 156
 - CMP307-R1	Tue	2019-12-03 19:00:00	[REPEAT 1] Aria, Plaza Level East, Orovada 8 
 - CMP307-R2	Wed	2019-12-04 08:30:00	[REPEAT 2] Aria, Plaza Level East, Orovada 8
