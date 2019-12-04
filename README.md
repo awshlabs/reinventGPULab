@@ -223,7 +223,7 @@ add the following lines in the cell:
 ![workshop folder](./images/berttesting.png)
 
  
-## Additional (Optional) NLP Module:  
+## Additional NLP Module:  
  1. BERT Q&A Model: Github [https://github.com/eric-haibin-lin/nlp-notebooks/tree/master/natural_language_understanding ](https://github.com/eric-haibin-lin/nlp-notebooks/tree/master/natural_language_understanding)  Run: question_answering.ipynb
  2. Hands-on: Training and deploying GluonNLP models on AWS SageMaker Github: [https://github.com/eric-haibin-lin/reinvent19-gluonnlp/blob/master/tutorial/](https://github.com/eric-haibin-lin/reinvent19-gluonnlp/blob/master/tutorial/) Run: train_deploy_bert.ipynb
 
