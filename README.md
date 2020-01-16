@@ -226,7 +226,7 @@ add the following lines in the cell:
 ## Additional NLP Module:  
  1. BERT Q&A Model: Github [https://github.com/eric-haibin-lin/nlp-notebooks/tree/master/natural_language_understanding ](https://github.com/eric-haibin-lin/nlp-notebooks/tree/master/natural_language_understanding)  Run: question_answering.ipynb
  2. Hands-on: Training and deploying GluonNLP Sentiment model on AWS SageMaker Github: [https://github.com/eric-haibin-lin/reinvent19-gluonnlp/blob/master/tutorial/](https://github.com/eric-haibin-lin/reinvent19-gluonnlp/blob/master/tutorial/) Run: train_deploy_bert.ipynb
-3.  Hands-on: Training and deploying GluonNLP models on AWS SageMaker Q&A Model Github: [https://github.com/awshlabs/Jan2020-NLPLab](https://github.com/awshlabs/Jan2020-NLPLab) 
+3.  Hands-on: Training and deploying GluonNLP Squard Q&A model on AWS SageMaker. Github location: [https://github.com/awshlabs/Jan2020-NLPLab](https://github.com/awshlabs/Jan2020-NLPLab) 
 ## Additional (Optional) Container Models: 
  1. Amazon Elastic Container Service (Amazon ECS) tutorial.
     https://aws.amazon.com/getting-started/tutorials/train-deep-learning-model-aws-ec2-containers/
